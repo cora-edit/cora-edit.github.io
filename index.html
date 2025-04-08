@@ -1,0 +1,1133 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;500;600;700&display=swap">
+
+<script src="https://unpkg.com/markdown-it/dist/markdown-it.min.js"></script>
+<script src="https://unpkg.com/markdown-it-mathjax/dist/markdown-it-mathjax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+
+  body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+  }
+
+  #image-slider {
+    text-align: center;
+  }
+
+  #image-slider img {
+    width: 800px;
+  }
+
+  #image-slider button {
+    background-color: #7d2186;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 50%;  /* make the button circular */
+  }
+
+  #image-slider button:hover {
+    background-color: white;
+    color: #7d2186;
+  }
+
+  .circle {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1px;
+  }
+
+  .selected {
+    background-color: #7d2186;
+  }
+
+  /* .paper-link {
+      color: #0078C0;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+  } */
+
+  .rectangle {
+    display: inline-block;
+    border: 2px solid #9829A0;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    z-index: 1; /* Add this line */
+  }
+
+  .rectangle a {
+    color: #9829A0;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative; /* Add this line */
+    z-index: 2; /* Add this line */
+  }
+
+  .rectangle:hover {
+    border: 2px solid white;
+    background: #9829A0;
+  }
+
+  .rectangle:hover a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .rectangle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 10px;
+  }
+
+  .rectangle .github-link {
+    color: #9829A0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+
+  .title-font {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 38px;
+  }
+  .cora-purple {
+  color: #9829A0;
+}
+
+  .author-font {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .author-font a:link,
+.author-font a:visited {
+  color: #9829A0 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.author-font a:hover,
+.author-font a:active {
+  color: #c761cc !important;
+}
+
+
+  .tldr-summary {
+    font-size: 18px; /* Adjust the size as needed */
+    margin-top: 10%;
+    /* Creates space between the image and the text */
+    /* Any other styling you want to add */
+  }
+
+  .video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  pre {
+    background-color: #f8f8f8; /* Light gray background */
+    padding: 15px; /* Padding around the text */
+    border: 1px solid #ddd; /* Light gray border */
+    overflow: auto; /* Ensures the content is scrollable if it overflows */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for better readability */
+    font-size: 14px; /* Slightly smaller font size */
+    line-height: 1.4; /* Line height for better readability */
+    white-space: pre-wrap; /* Allows text to wrap within the container */
+    word-break: break-all; /* Ensures long lines of text break as needed */
+    margin-bottom: 20px; /* Space below the section */
+  }
+
+
+
+
+  /* h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }*/
+
+  h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    margin-top: 10%;
+  }
+
+
+
+
+
+
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  a:link,a:visited
+  {
+    color: #9829A0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #9829A0;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+  .paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border-color: lightgray;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  }
+
+
+  .project-header a{
+    color: #0078c0;
+  }
+  .project-header a:hover{
+    color: #C3D9F0;
+  }
+  .cvpr-title {
+    text-align: center;
+    color: #9829A0;
+  }
+
+   .demo-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f7e9fa;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+    .demo-title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+    }
+    .demo-subtitle {
+      margin: 6px 0 30px 0;
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* --- Thumbnail Gallery --- */
+    .thumbnail-gallery {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .thumbnail-gallery img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s, border 0.2s;
+    }
+    .thumbnail-gallery img:hover {
+      transform: scale(1.05);
+      border-color: #9829A0;
+    }
+
+    /* --- Main Layout with Sliders and Images --- */
+    .demo-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin: 0 auto;
+      max-width: 900px; /* helps center the content nicely */
+    }
+
+    /* --- Vertical slider container on the left side --- */
+    .slider-vertical-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px; /* enough space for label + slider */
+    }
+    .slider-label-vertical {
+      font-size: 16px;
+      font-weight: 500;
+      color: #444;
+      white-space: nowrap;
+      margin: 0 50px 0px 0; /* label above the slider */
+      transform: rotate(270deg);
+      transform-origin: center center;
+    }
+    .rotated-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      transform: rotate(-90deg);
+      width: 200px;
+      height: 10px;
+      background: #e2e2e2;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .rotated-slider:hover {
+      background: #d2d2d2;
+    }
+    .rotated-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #9829A0;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .rotated-slider::-webkit-slider-thumb:hover {
+      background: #b74fc0;
+      transform: scale(1.1);
+    }
+    .rotated-slider:active::-webkit-slider-thumb {
+      background: #7d2186;
+      transform: scale(1.2);
+    }
+    .rotated-slider::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #9829A0;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .rotated-slider::-moz-range-thumb:hover {
+      background: #b74fc0;
+      transform: scale(1.1);
+    }
+    .rotated-slider:active::-moz-range-thumb {
+      background: #7d2186;
+      transform: scale(1.2);
+    }
+
+    /* --- Left side: Input image + "prompt" + Alpha slider --- */
+    .demo-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 280px;
+    }
+    .demo-left img {
+      width: 100%;
+      border: 3px solid #4caf50;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Handwritten prompt style */
+    .edit-prompt {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 20px;
+      color: #555;
+      margin: 15px 0; /* space between image and prompt */
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Horizontal slider + label */
+    .slider-horizontal-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .slider-label-horizontal {
+      font-size: 15px;
+      font-weight: 500;
+      color: #444;
+    }
+    .demo-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 220px;
+      height: 10px;
+      background: #e2e2e2;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .demo-slider:hover {
+      background: #d2d2d2;
+    }
+    .demo-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #3a91c3;
+      transition: background 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .demo-slider::-webkit-slider-thumb:hover {
+      background: #65aad1;
+      transform: scale(1.1);
+    }
+    .demo-slider:active::-webkit-slider-thumb {
+      background: #2e769c;
+      transform: scale(1.2);
+    }
+    .demo-slider::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #3a91c3;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .demo-slider::-moz-range-thumb:hover {
+      background: #65aad1;
+      transform: scale(1.1);
+    }
+    .demo-slider:active::-moz-range-thumb {
+      background: #2e769c;
+      transform: scale(1.2);
+    }
+
+    /* --- Right side: Output image --- */
+    .demo-right {
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-right img {
+      width: 100%;
+      border-radius: 10px;
+      border: 3px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      margin-bottom: 10px;
+    }
+</style>
+
+
+<html>
+<head>
+  <title>Cora: Correspondence-aware image editing using few step diffusion</title>
+  <meta property="og:image" content="resources/teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+  <meta property="og:title" content="Cora: Correspondence-aware image editing using few step diffusion" />
+  <meta property="og:description" content="Few step image editing with Cora" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
+    rel="stylesheet"
+  >
+  <!-- Get from Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src=""></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-75863369-6');
+  </script>
+</head>
+
+<body>
+
+
+
+<br>
+<div style="text-align: center;">
+
+  <!-- Title -->
+  <h1 class="title-font" style="margin: 0;">
+    <span class="cora-purple">Cora</span>:<br> <span class="cora-purple">Cor</span>respondence- <span class="cora-purple">a</span>ware image editing using few step diffusion
+  </h1>
+
+  <!-- Author Table (top) -->
+  <table class="project-header" style="margin: 20px auto 0 auto; border-collapse: collapse; text-align: center;">
+    <tr>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://alimohammadiamirhossein.github.io/">
+            <nobr>Amirhossein Alimohammadi*</nobr> <sup>1</sup>
+          </a>
+        </span>
+      </td>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://aryanmikaeili.github.io/">
+            <nobr>Aryan Mikaeili*</nobr> <sup>1</sup>
+          </a>
+        </span>
+      </td>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://sauradip.github.io/">
+            <nobr>Sauradip Nag</nobr> <sup>1</sup>
+          </a>
+        </span>
+      </td>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://webdocs.cs.ualberta.ca/~hassanpo/">
+            <nobr>Negar Hassanpour</nobr> <sup>2</sup>
+          </a>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;"> </td>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://theialab.ca/">
+            <nobr>Andrea Tagliasacchi</nobr> <sup>1, 3, 4</sup>
+          </a>
+        </span>
+      </td>
+      <td style="padding: 6px;">
+        <span class="author-font">
+          <a href="https://arash-mham.github.io/">
+            <nobr>Ali Mahdavi-Amiri</nobr> <sup>1</sup>
+          </a>
+        </span>
+      </td>
+      <td style="padding: 6px;"> </td>
+    </tr>
+  </table>
+
+  <!-- Affiliation Table -->
+  <table class="project-header" style="margin: 20px auto 0 auto; width: 800px; border-collapse: collapse; text-align: center;">
+    <tr>
+      <td style="padding: 5px;">
+        <span class="author-font">
+          <sup>1</sup> Simon Fraser University
+        </span>
+      </td>
+      <td style="padding: 5px;">
+        <span class="author-font">
+          <sup>2</sup> Huawei
+        </span>
+      </td>
+      <td style="padding: 5px;">
+        <span class="author-font">
+          <sup>3</sup> University of Toronto
+        </span>
+      </td>
+      <td style="padding: 5px;">
+        <span class="author-font">
+          <sup>4</sup> Google DeepMind
+        </span>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Equal contribution note -->
+  <div style="font-size: 14px; margin-top: 20px; color: #c761cc;">
+    <em>* indicates equal contribution</em>
+  </div>
+
+  <!-- Conference name -->
+  <h4 class="cvpr-title" style="margin: 12px 0 0 0;">Siggraph 2025</h4>
+</div>
+
+
+
+
+  <table align=center width=600px style="margin-top: 5%">
+    <tr>
+      <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='./paper.pdf' class="github-link">Paper (PDF)</a>
+          </div>
+        </center>
+      </td>
+       <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='./' class="github-link">Paper (Arxiv)</a>
+          </div>
+        </center>
+      </td>
+      <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='.' class="github-link">Code <br> (Coming soon)</a>
+          </div>
+        </center>
+      </td>
+    </tr>
+  </table>
+
+</center>
+
+<br><br>
+<center>
+  <table align=center width=1000px>
+    <tr>
+      <td width=260px>
+        <center>
+          <img class="round" style="width:1000px" src="./resources/teaser.png"/>
+  <h2  align="center">TL;DR</h2>
+<div style="background-color: #f7e9fa; padding: 10px 30px 30px 30px; border-radius: 12px; max-width: 800px; margin: 50px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+
+  <p>
+    <strong style="color: #9829A0">Cora</strong> is a new image editing method that enables flexible and accurate edits-like pose changes, object insertions, and background swaps-using only 4 diffusion steps.
+    Unlike other fast methods that create visual artifacts, Cora uses <em>semantic correspondences</em> between the original and edited image to preserve structure and appearance where needed.
+  </p>
+  <p>
+    It works by:
+    <ul>
+      <li>Correcting noise in a way that respects spatial changes</li>
+      <li>Interpolating attention maps between source and target with linear interpolation for smooth transition between source appearance and target text prompt for <strong>fine-grained control on appearance</strong></li>
+  <li><strong>Control on structure alignment</strong> with query matching for edits that maintain the layout</li>
+    </ul>
+  </p>
+  <p>
+    It's fast, controllable, and produces high-quality edits with better fidelity than existing few-step methods.
+  </p>
+</div>
+        </center>
+      </td>
+    </tr>
+  </table>
+</center>
+ <center><h2>Editing demo</h2></center>
+<div class="demo-container">
+  <p class="demo-subtitle">Click a thumbnail, then adjust &alpha; (Appearance alignment) and &beta; (Structure alignment) from 0 (complete alignment with input image) to 1 (complete adherence to text prompt) to see the output.</p>
+
+  <!-- Thumbnail gallery -->
+  <div class="thumbnail-gallery">
+    <!-- 6 images, each calls changeImageSet() on click -->
+    <img src="./resources/bear/bear.jpg" alt="Bear" onclick="changeImageSet('bear')" />
+    <img src="./resources/spiderman/spiderman.jpg" alt="Spiderman" onclick="changeImageSet('spiderman')" />
+    <img src="./resources/cat/cat.jpg" alt="Cat" onclick="changeImageSet('cat')" />
+    <img src="./resources/car/car.jpg" alt="Car" onclick="changeImageSet('car')" />
+    <img src="./resources/horse/horse.jpg" alt="Horse" onclick="changeImageSet('horse')" />
+    <img src="./resources/girls/girls.jpg" alt="Girls" onclick="changeImageSet('girls')" />
+  </div>
+
+  <div class="demo-flex">
+    <!-- Beta slider (vertical) -->
+    <div class="slider-vertical-container">
+      <div class="slider-label-vertical">
+        &beta; = <span id="beta-value">0.0</span>
+      </div>
+      <input
+        type="range"
+        min="0" max="10" step="1" value="0"
+        class="rotated-slider"
+        id="beta-slider"
+        oninput="updateOutput()"
+      />
+    </div>
+
+    <!-- Input image + Prompt + Alpha slider -->
+    <div class="demo-left">
+      <img id="input-image" src="./resources/bear/bear.jpg" alt="Input image">
+      <!-- Handwritten prompt goes here -->
+      <div class="edit-prompt" id="edit-prompt">Edit prompt: "A standing green bear"</div>
+
+      <div class="slider-horizontal-wrapper">
+        <div class="slider-label-horizontal">
+          &alpha; = <span id="alpha-value">0.0</span>
+        </div>
+        <input
+          type="range"
+          min="0" max="10" step="1" value="0"
+          class="demo-slider"
+          id="alpha-slider"
+          oninput="updateOutput()"
+        />
+      </div>
+    </div>
+
+    <!-- Output image -->
+    <div class="demo-right">
+      <img id="output-image" src="./resources/bear/output_0.00_0.97.jpg" alt="Output image">
+    </div>
+  </div>
+</div>
+
+<script>
+  // Track which folder (bear, spiderman, etc.) is active
+  let currentFolder = 'bear';
+
+  // Prompts for each folder
+  const prompts = {
+    'bear':       'A standing green bear',
+    'car':        'A red bus',
+    'cat':        'An eagle',
+    'girls':      'Oilpainting of bears in the garden',
+    'spiderman':  'A golden robot',
+    'horse':      'A tiger'
+  };
+
+  // Switch the main image and prompt when a thumbnail is clicked
+  function changeImageSet(folder) {
+    currentFolder = folder;
+    // Update the main input image
+    document.getElementById("input-image").src = `./resources/${folder}/${folder}.jpg`;
+    // Update the prompt text
+    document.getElementById("edit-prompt").textContent = "Edit prompt: " + `"${prompts[folder]}"`;
+
+    // Refresh the output
+    updateOutput();
+  }
+
+  // Update the output image based on alpha & beta sliders
+  function updateOutput() {
+    const alphaSlider = document.getElementById("alpha-slider");
+    const betaSlider  = document.getElementById("beta-slider");
+
+    const alpha = Math.min(parseInt(alphaSlider.value) / 10, 0.97);
+    const beta  = Math.min(parseInt(betaSlider.value)  / 10, 0.97);
+
+    // Example transformation for beta
+    const get_beta = Math.min(1 - beta, 0.97);
+
+    // Display slider values
+    document.getElementById("alpha-value").textContent = alpha.toFixed(2);
+    document.getElementById("beta-value").textContent  = beta.toFixed(2);
+
+    // Build output path for the current folder
+    const alphaStr = alpha.toFixed(2);
+    const betaStr  = get_beta.toFixed(2);
+    // e.g. "./resources/bear/output_0.00_0.97.png"
+    const outputPath = `./resources/${currentFolder}/output_${alphaStr}_${betaStr}.jpg`;
+
+    document.getElementById("output-image").src = outputPath;
+  }
+</script>
+<center><h2>Comparison with ChatGPT 4o</h2></center>
+<!-- <center><img src="./resources/r1.gif" alt="Results" width="800px"></center> -->
+<div id="image-slider">
+  <button id="previous-button" onclick="changeImageTransfer(-1)">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <img id="slider-image-transfer" src="./resources/chatgpt_comp/1.png" alt="Results">
+  <button id="next-button" onclick="changeImageTransfer(1)">
+    <i class="fas fa-arrow-right"></i>
+  </button>
+  <div id="circle-container_transfer"></div>
+</div>
+<div style="background-color: #f7e9fa; padding: 10px 30px 30px 30px; border-radius: 12px; max-width: 800px; margin: 50px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+While the new ChatGPT 4o image-editing model can also generate high-quality outputs, our approach provides explicit user control over appearance and structural alignment with the input image-resulting in more consistent and customizable edits.
+</div>
+<!-- <hr> -->
+  <center><h2>Abstract</h2></center>
+ <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+<table align=center width=800px>
+
+
+  <tr>
+    <td>
+     Image editing is an important task in computer graphics, vision, and VFX, with recent diffusion-based methods achieving fast and high-quality results. However, edits requiring significant structural changes, such as non-rigid deformations, object modifications, or content generation, remain challenging. Existing few step editing approaches produce artifacts such as irrelevant texture or struggle to preserve key attributes of the source image (e.g., pose). We introduce Cora, a novel editing framework that addresses these limitations by introducing correspondence-aware noise correction and interpolated attention maps. Our method aligns textures and structures between the source and target images through semantic correspondence, enabling accurate texture transfer while generating new content when necessary. Cora offers control over the balance between content generation and preservation. Extensive experiments demonstrate that, quantitatively and qualitatively, Cora excels in maintaining structure, textures, and identity across diverse edits, including pose changes, object addition, and texture refinements. User studies confirm that Cora delivers superior results, outperforming alternatives.
+    </td>
+
+  </tr>
+
+
+</table>
+ </div>
+<br>
+
+<!-- <hr> -->
+<center><h2>Correspondence-aware latent correction</h2></center>
+<center>
+  <table align=center width=1000px>
+    <tr>
+      <td width=260px>
+        <center>
+          <img class="round" style="width:75%" src="./resources/correspondence.jpg"/>
+        </center>
+<div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+  <p>
+  Image editing with diffusion models typically requires <strong>inversion</strong>: recovering the denoising trajectory from the input image <i>X<sub>0</sub></i> to noise <i>X<sub>T</sub></i>. We build on Edit-Friendly DDPM inversion, where noise is added step-by-step using the forward scheduler to produce <i>X<sub>1</sub></i>, <i>X<sub>2</sub></i>, ..., <i>X<sub>T</sub></i>.
+  </p>
+
+  <p>
+  During generation, it's not guaranteed that <i>X<sub>t</sub></i> will map back to <i>X<sub>t-1</sub></i>, so the method introduces a correction term <i>z</i>. This enables perfect reconstruction with the original prompt and meaningful edits with new prompts.
+  </p>
+
+  <p>
+  However, in <strong>few-step generation</strong>, directly using <i>z</i> leads to <em>artifacts</em> like ghosting and silhouette remnants, especially when the edit involves structural change. We identify the cause: the correction terms are spatially aligned with the original image, not the edited one.
+  </p>
+
+  <p>
+  <strong style="color: #9829A0">Cora</strong> addresses this by aligning <i>z</i> to the target content using <strong>pixel correspondences</strong> computed from diffusion features, enabling clean, structure-consistent edits even in few-step settings.
+  </p>
+</div>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<center><h2>Correspondence-aware attention interpolation</h2></center>
+<!-- <center><img src="./resources/r1.gif" alt="Results" width="800px"></center> -->
+<div style="display: flex; justify-content: center; gap: 30px; max-width: 1000px; margin: 30px auto; flex-wrap: wrap; font-size: 18px; line-height: 1.4;">
+
+  <!-- Left Column -->
+  <div style="flex: 1; min-width: 280px; max-width: 480px;">
+    <h3 style="margin-bottom: 10px; text-align: center;">Attention interpolation</h3>
+    <figure style="text-align: center;">
+      <img class="round" style="width:100%" src="./resources/att_method.png"/>
+      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">Illustrating attention interpolation with varying &alpha; values.</figcaption>
+    </figure>
+
+    <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+      <ul style="padding-left: 20px;">
+        <li>We reuse self-attention keys and values from the input image (via inversion) during generation to help preserve appearance.</li>
+        <li>However, the editing prompt may change appearance or introduce new content not present in the original image.</li>
+        <li>Prior methods either fully swap or concatenate input and target attention features, which often causes conflicts between preservation and new content.</li>
+        <li>Instead, we align attention features using pixel-wise correspondences and apply linear interpolation between them.</li>
+        <li>This approach balances content preservation and flexibility, and provides control over how much of the input's appearance is retained.</li>
+        <li>We found that using <strong>Spherical linear interpolation (SLERP)</strong> works better than linear interpolation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div style="flex: 1; min-width: 280px; max-width: 480px;">
+    <h3 style="margin-bottom: 10px; text-align: center;">Content-adaptive interpolation</h3>
+    <figure style="text-align: center;">
+      <img class="round" style="width:88%" src="./resources/adaptive.png"/>
+      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">Content adaptive vs non-adaptive interpolation across different image edits.</figcaption>
+    </figure>
+
+    <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+      <ul style="padding-left: 20px;">
+        <li>To generate new content, we identify image patches in the target that lack clear correspondence with the input.</li>
+        <li>We assign each patch a score based on how well it matches any patch in the input image.</li>
+        <li>Patches with low correspondence are considered novel, and we set their interpolation coefficient <i>&alpha; = 1</i>, allowing full guidance by the text prompt.</li>
+        <li>For all other patches, &alpha; is set to a user-defined value to balance between input preservation and new content generation.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- <hr> -->
+<center><h2>Structure alignment</h2></center>
+<center>
+  <table align=center width=1000px>
+    <tr>
+      <td width=260px>
+        <center>
+          <img class="round" style="width:50%" src="./resources/struct_align.jpg"/>
+        </center>
+<div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+ <p>
+To preserve the structure of the input image, we align self-attention queries of the target with those of the input.
+Rather than direct pixel-wise alignment, we use one-to-one matching via the Hungarian algorithm, which effectively maintains structural consistency.
+</p>
+</div>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<center><h2>Visual results</h2></center>
+<center>
+  <table align=center width=1000px>
+    <tr>
+      <td width=260px>
+        <center>
+          <img class="round" style="width:75%" src="./resources/results.png"/>
+        </center>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<center><h2>Comparison</h2></center>
+<center>
+  <table align=center width=1000px>
+    <tr>
+      <td width=260px>
+        <center>
+          <img class="round" style="width:75%" src="./resources/comparison.png"/>
+        </center>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<table align=center width=450px>
+  <center><h2>Citation</h2></center>
+
+  <pre><code>@article{alimohammadi2025cora,
+    title={Cora: Correspondence-aware image editing using few step diffusion},
+    author={Amirhossein Alimohammadi, Aryan Mikaeili, Sauradip Nag, Negar Hassanpour, Andrea Tagliasacchi, Ali Mahdavi-Amiri},
+    journal={Siggraph},
+    year={2025}}
+</code></pre>
+
+</table>
+<br>
+
+
+<!-- <table align=center width=900px>
+    <tr>
+        <td width=400px>
+            <left>
+                <center><h2>Acknowledgements</h2></center>
+                This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+            </left>
+        </td>
+    </tr>
+</table> -->
+
+<br>
+
+
+
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var md = window.markdownit({
+    html: true,
+    linkify: true,
+    typographer: true
+  }).use(window.markdownitMathjax());
+
+  var markdownContent = `
+An overview of SKED. We render the base NeRF model 𝑥base from at least two views and sketch over them (Ci). The input to the editing algorithm is these sketches preprocessed to masks (Mi) and a text prompt. In each iteration similar to DreamFusion [1], we render a random view and apply the Score Distillation Loss to semantically align with the text prompt. Additionally, we compute 𝒍pres to preserve the base NeRF by constraining 𝑥edited's density and color output to be similar to 𝑥base away from the sketch regions. Finally, we use the object mask renderings of the sketch views to define 𝒍sil. This loss ensures that the object mask occupies the sketch regions.
+  `;
+
+  var result = md.render(markdownContent);
+  document.getElementById("markdown-container").innerHTML = result;
+});
+
+</script> -->
+
+<script>
+  var currentImageIndexTransfer = 1;
+  var numOfImagesTransfer = 5;
+
+  var currentImageIndexGeneration = 1;
+  var numOfImagesGeneration = 8;
+
+  window.onload = function() {
+    var container_transfer = document.getElementById('circle-container_transfer');
+
+    for (var i = 1; i <= numOfImagesTransfer; i++) {
+      var circle = document.createElement('div');
+      circle.className = 'circle';
+      circle.id = 'circle-transfer-' + i;
+      container_transfer.appendChild(circle);
+    }
+    updateCirclesTransfer();
+    setInterval(function() {
+    changeImageTransfer(1); // move to the next image
+  }, 5000);
+  }
+
+
+
+  function updateCirclesTransfer() {
+    for (var i = 1; i <= numOfImagesTransfer; i++) {
+      var circle = document.getElementById('circle-transfer-' + i);
+      circle.className = 'circle';
+      if (i == currentImageIndexTransfer) {
+        circle.classList.add('selected');
+      }
+    }
+  }
+  function updateCirclesGeneration() {
+    for (var i = 1; i <= numOfImagesGeneration; i++) {
+      var circle = document.getElementById('circle-generation-' + i);
+      circle.className = 'circle';
+      if (i == currentImageIndexGeneration) {
+        circle.classList.add('selected');
+      }
+    }
+  }
+
+  function changeImageTransfer(direction) {
+    currentImageIndexTransfer += direction;
+    if (currentImageIndexTransfer < 1) {
+      currentImageIndexTransfer = numOfImagesTransfer;
+    } else if (currentImageIndexTransfer > numOfImagesTransfer) {
+      currentImageIndexTransfer = 1;
+    }
+    var newSrc = "./resources/chatgpt_comp/" + currentImageIndexTransfer + ".png";
+    newSrc += '?' + new Date().getTime(); // Append current timestamp
+    document.getElementById('slider-image-transfer').src = newSrc;
+    updateCirclesTransfer();
+  }
+
+  function changeImageGeneration(direction) {
+    currentImageIndexGeneration += direction;
+    if (currentImageIndexGeneration < 1) {
+      currentImageIndexGeneration = numOfImagesGeneration;
+    } else if (currentImageIndexGeneration > numOfImagesGeneration) {
+      currentImageIndexGeneration = 1;
+    }
+    var newSrc = "./resources/generation_results/" + currentImageIndexGeneration + ".png";
+    newSrc += '?' + new Date().getTime(); // Append current timestamp
+    document.getElementById('slider-image-generation').src = newSrc;
+    updateCirclesGeneration();
+  }
+
+  function copyToClipboard() {
+    var bibtexText = document.getElementById("bibtex").innerText;
+    navigator.clipboard.writeText(bibtexText)
+            .then(() => {
+              alert("BibTeX citation copied to clipboard!");
+            })
+            .catch(err => {
+              console.error('Error in copying text: ', err);
+            });
+  }
+</script>
+
+
+
+</body>
+
+
+
+</html>
+
