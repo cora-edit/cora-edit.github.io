@@ -1,0 +1,6 @@
+@article{alimohammadi2025cora,
+    title={Cora: Correspondence-aware image editing using few step diffusion},
+    author={Amirhossein Alimohammadi, Aryan Mikaeili, Sauradip Nag, Negar Hassanpour, Andrea Tagliasacchi, Ali Mahdavi-Amiri},
+    journal={Siggraph},
+    year={2025}
+}
