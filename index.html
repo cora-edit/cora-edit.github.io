@@ -439,6 +439,28 @@
       transform: scale(1.2);
     }
 
+    #slider-handle {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 36px;
+      width: 36px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border: 2px solid #9829A0;
+      border-radius: 50%;
+      z-index: 10;
+      pointer-events: none; /* So it doesn’t block dragging */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .handle-icon {
+      color: #9829A0;
+      font-size: 20px;
+    }
+
     /* --- Left side: Input image + "prompt" + Alpha slider --- */
     .demo-left {
       display: flex;
@@ -461,6 +483,48 @@
       margin: 15px 0; /* space between image and prompt */
       text-align: center;
       font-weight: 500;
+    }
+
+    /* Handwritten prompt style */
+    .edit-prompt2 {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 20px;
+      color: #555;
+      margin: 15px 0; /* space between image and prompt */
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .slider-prompt {
+      position: absolute;
+      top: 10px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+
+      /* Light gray text */
+      color: #ddd;
+      
+      /*
+      Outline: draws a 1px black border around each glyph
+      by stacking multiple shadows in each direction.
+      */
+      text-shadow:
+        -1px -1px 0 #000, /* top-left */
+        1px -1px 0 #000, /* top-right */
+        -1px  1px 0 #000, /* bottom-left */
+        1px  1px 0 #000; /* bottom-right */
+      
+      /* Adjust if you have other layering needs */
+      z-index: 999;
+    }
+
+    .slider-prompt-left {
+      left: 10px;
+    }
+
+    .slider-prompt-right {
+      right: 10px;
     }
 
     /* Horizontal slider + label */
@@ -531,13 +595,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: hidden
     }
     .demo-right img {
       width: 100%;
       border-radius: 10px;
       border: 3px solid #ccc;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      margin-bottom: 10px;
+      margin-bottom: 0; /* remove any margin-bottom */
+      display: block; /* this prevents inline spacing */
     }
 </style>
 
@@ -784,6 +850,7 @@
   </div>
 </div>
 
+
 <script>
   // Track which folder (bear, spiderman, etc.) is active
   let currentFolder = 'bear';
@@ -834,6 +901,8 @@
     document.getElementById("output-image").src = outputPath;
   }
 </script>
+
+
 <center><h2>Comparison with ChatGPT 4o</h2></center>
 <!-- <center><img src="./resources/r1.gif" alt="Results" width="800px"></center> -->
 <div id="image-slider">
@@ -868,7 +937,109 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
 <br>
 
 <!-- <hr> -->
-<center><h2>Correspondence-aware latent correction</h2></center>
+<center><h2>Correspondence-aware latent correction (CLC)</h2></center>
+
+<div class="demo-container">
+  <p class="demo-subtitle">Click a thumbnail to see the editing prompt and interactively compare <strong>with</strong> and <strong>without CLC</strong>.</p>
+
+  <!-- Thumbnail gallery -->
+  <div class="thumbnail-gallery">
+    <img src="./resources/latent_correction/eagle/input.png" alt="an eagle" onclick="changeExample('eagle')" />
+    <img src="./resources/latent_correction/dance/input.png" alt="a copule dancing" onclick="changeExample('dance')" />
+    <img src="./resources/latent_correction/cat3/input.png" alt="a cat" onclick="changeExample('cat3')" />
+    <img src="./resources/latent_correction/dog1/input.png" alt="a dog" onclick="changeExample('dog1')" />
+    <img src="./resources/latent_correction/cat2/input.png" alt="a cat and a rabbit" onclick="changeExample('cat2')" />
+    <img src="./resources/latent_correction/girl/input.png" alt="a girl" onclick="changeExample('girl')" />
+    <img src="./resources/latent_correction/shark/input.png" alt="a shark" onclick="changeExample('shark')" />
+    <img src="./resources/latent_correction/stones/input.png" alt="Spiderman" onclick="changeExample('stones')" />
+    <img src="./resources/latent_correction/cat4/input.png" alt="a cat" onclick="changeExample('cat4')" />
+    <img src="./resources/latent_correction/dog2/input.png" alt="a dog" onclick="changeExample('dog2')" />
+  </div>
+
+  <div style="display:flex; gap:40px; justify-content:center; align-items:flex-start; flex-wrap:wrap;">
+
+    <!-- Left side: Input Image and prompt -->
+    <div class="demo-left">
+      <!-- <h4 style="color:#9829A0; font-family: 'Shadows Into Light', cursive; margin-bottom:10px;">Input Image</h4> -->
+      <img id="input" src="./resources/latent_correction/cat2/input.png" alt="Input Image" style="border-radius:10px; border:3px solid #4caf50; box-shadow:0 2px 6px rgba(0,0,0,0.15); max-width:100%;" />
+      <div class="edit-prompt2" id="edit-prompt2">Prompt will appear here</div>
+    </div>
+
+    <!-- Right side: Before/After slider -->
+    <div class="demo-right" style="position:relative; overflow:hidden;">
+      <!-- <h4 style="color:#9829A0; font-family: 'Shadows Into Light', cursive; margin-bottom:10px;">w/o vs. w/ Latent Correction</h4> -->
+      <div id="image-compare" style="position:relative; width:100%; max-width:320px; overflow:hidden; border-radius:10px; border:3px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+        <img id="w-image" src="./resources/latent_correction/cat2/w.png" style="width:100%; display:block;">
+        <img id="wo-image" src="./resources/latent_correction/cat2/wo.png" style="width:100%; display:block; position:absolute; top:0; left:0; clip-path: inset(0 50% 0 0);">
+        <div id="slider" style="position:absolute; top:0; left:50%; height:100%; width:4px; background:#9829A0; cursor:ew-resize;"></div>
+        <div id="slider-handle">
+          <div class="handle-icon">
+            <i class="fas fa-arrows-alt-h"></i>
+          </div>
+        </div>
+
+        <div class="slider-prompt slider-prompt-left">w/o CLC</div>
+        <div class="slider-prompt slider-prompt-right">w/ CLC</div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const prompts2 = {
+    'cat2': 'An image of bear cubs in the snow',
+    'dance': 'A couple dancing in the kitchen, in cartoon style',
+    'stones': 'A white wedding cake',
+    'cat3': 'A dog play with colorful yarn balls',
+    'dog1': 'A dog is jumping',
+    'dog2': 'A dog is lying',
+    'shark': 'A shark',
+    'eagle': 'An eagle',
+    'girl': 'A painting of girl with pearl earring and glasses',
+    'cat3': 'A racoon play with colorful yarn balls'
+  };
+
+  function changeExample(example) {
+    document.getElementById('input').src = `./resources/latent_correction/${example}/input.png`;
+    document.getElementById('w-image').src = `./resources/latent_correction/${example}/w.png`;
+    document.getElementById('wo-image').src = `./resources/latent_correction/${example}/wo.png`;
+    document.getElementById("edit-prompt2").textContent = "Edit prompt: " + `"${prompts2[example]}"`;
+  }
+
+  const slider = document.getElementById('slider');
+  const afterImage = document.getElementById('wo-image');
+  const imageCompare = document.getElementById('image-compare');
+
+  function updateSlider(offsetX) {
+    let rect = imageCompare.getBoundingClientRect();
+    let percentage = Math.min(Math.max(offsetX / rect.width, 0), 1);
+
+    // Clamp to prevent disappearing
+    percentage = Math.max(0.01, Math.min(percentage, 0.99));
+
+    slider.style.left = (percentage * 100) + '%';
+    afterImage.style.clipPath = 'inset(0 ' + (100 - (percentage * 100)) + '% 0 0)';
+
+    document.getElementById('slider-handle').style.left = (percentage * 100) + '%';
+  }
+
+  imageCompare.addEventListener('mousemove', function(e) {
+    updateSlider(e.clientX - imageCompare.getBoundingClientRect().left);
+  });
+
+  imageCompare.addEventListener('touchmove', function(e) {
+    const rect = imageCompare.getBoundingClientRect();
+    const offsetX = e.touches[0].clientX - rect.left;
+    updateSlider(offsetX);
+    e.preventDefault(); // prevent default scrolling behavior
+  }, { passive: false });
+
+  // Initialize first example
+  changeExample('cat2');
+</script>
+
 <center>
   <table align=center width=1000px>
     <tr>
