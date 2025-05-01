@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <script src="https://unpkg.com/markdown-it/dist/markdown-it.min.js"></script>
 <script src="https://unpkg.com/markdown-it-mathjax/dist/markdown-it-mathjax.min.js"></script>
@@ -17,6 +18,7 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 
+
 <style type="text/css">
 
   body {
@@ -26,7 +28,9 @@
     font-size: 32px;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    max-width: 1200px;
+    width: 95%;
+    box-sizing: border-box;
   }
 
   #image-slider {
@@ -34,7 +38,8 @@
   }
 
   #image-slider img {
-    width: 800px;
+    max-width: 800px;
+    width: 95%;
   }
 
   #image-slider button {
@@ -84,6 +89,7 @@
     padding: 10px;
     position: relative;
     z-index: 1; /* Add this line */
+    width: 80%;
   }
 
   .rectangle a {
@@ -185,7 +191,27 @@
     margin-bottom: 20px; /* Space below the section */
   }
 
-
+  .liInMobile{
+    font-size: 40px !important;
+  }
+  #struct-align{
+    width: 100%;
+  }
+  #struct-align2{
+    width: 100%;
+  }
+  
+  @media screen and (min-width:1000px) {
+    .liInMobile{
+      font-size: 16px !important;
+    }
+    #struct-align{
+      width: 75%;
+    }
+    #struct-align2{
+      width: 75%;
+    }
+  }
 
 
   /* h1 {
@@ -198,12 +224,6 @@
     font-weight: 600;
     margin-top: 10%;
   }
-
-
-
-
-
-
 
   .disclaimerbox {
     background-color: #eee;
@@ -249,7 +269,6 @@
   td.dl-link {
     height: 160px;
     text-align: center;
-    font-size: 22px;
   }
 
   .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
@@ -319,6 +338,7 @@
 
    .demo-container {
       max-width: 1000px;
+      width: 100%;
       margin: 50px auto;
       padding: 30px;
       background: #f7e9fa;
@@ -370,6 +390,7 @@
       gap: 40px;
       margin: 0 auto;
       max-width: 900px; /* helps center the content nicely */
+      width: 100%;
     }
 
     /* --- Vertical slider container on the left side --- */
@@ -378,6 +399,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      margin-right: -100px;
       min-height: 300px; /* enough space for label + slider */
     }
     .slider-label-vertical {
@@ -467,10 +489,11 @@
       flex-direction: column;
       align-items: center;
       max-width: 280px;
+      width: 100%;
     }
     .demo-left img {
       width: 100%;
-      border: 3px solid #4caf50;
+      border: 3px solid #7d2186;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
@@ -504,7 +527,7 @@
 
       /* Light gray text */
       color: #ddd;
-
+      
       /*
       Outline: draws a 1px black border around each glyph
       by stacking multiple shadows in each direction.
@@ -514,7 +537,7 @@
         1px -1px 0 #000, /* top-right */
         -1px  1px 0 #000, /* bottom-left */
         1px  1px 0 #000; /* bottom-right */
-
+      
       /* Adjust if you have other layering needs */
       z-index: 999;
     }
@@ -592,20 +615,168 @@
     /* --- Right side: Output image --- */
     .demo-right {
       max-width: 320px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0px 0 0px 2px rgba(60, 0, 255, 0.95);
+      border-radius: 10px;
       overflow: hidden
     }
     .demo-right img {
       width: 100%;
       border-radius: 10px;
-      border: 3px solid #ccc;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       margin-bottom: 0; /* remove any margin-bottom */
       display: block; /* this prevents inline spacing */
     }
+
+    .table {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    @media only screen and (max-width: 768px) {
+      body {
+        font-size: 20px;
+        width: 95%;
+      }
+      
+      .title-font {
+        font-size: 28px;
+      }
+
+      .author-font {
+        font-size: 16px;
+      }
+
+      .rectangle, .rectangle a {
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      .demo-container {
+        padding: 10px;
+      }
+
+      .demo-left, .demo-right, .slider-vertical-container {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .demo-flex {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .demo-flex, .thumbnail-gallery, .responsive-column {
+        flex-direction: column !important;
+      }
+      
+      .responsive-column {
+        max-width: 100% !important;
+      }
+    }
+    
+    @media only screen and (max-width: 768px) {
+      body {
+        font-size: 20px;
+      }
+      
+      .title-font {
+        font-size: 28px;
+      }
+
+      .author-font {
+        font-size: 16px;
+      }
+
+      .rectangle, .rectangle a {
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      .demo-container {
+        padding: 10px;
+      }
+
+      .demo-left, .demo-right, .slider-vertical-container {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .demo-flex, .thumbnail-gallery, .responsive-column {
+        flex-direction: column !important;
+      }
+      
+      .responsive-column {
+        max-width: 100% !important;
+      }
+
+    }
+    @media screen and (max-width: 400px) {
+      .pInMobile {
+        font-size: xxx-large;
+      }
+    }
+
 </style>
+<style>
+
+
+  /* استایل مخصوص موبایل */
+  @media (max-width: 1000px) {
+    .slider-label-horizontal {
+      font-size: 20px;
+    }
+
+    .demo-slider {
+    width: 250%;
+    height: 20px;
+}
+.demo-slider::-webkit-slider-thumb {
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>
+<style>
+
+  .divDefineCora{
+    max-width: 800px;
+    padding: 30px;
+    font-size: 18px;
+  }
+  @media (max-width: 1000px) {
+    .slider-label-vertical {
+      font-size: 20px;
+      margin-left: -200px;
+    }
+
+    .rotated-slider {
+        margin-right: 90px;
+        width: 150%;
+        height: 20px;
+    }
+
+    .rotated-slider::-webkit-slider-thumb {
+      width: 30px;
+      height: 30px;
+    }
+
+    .rotated-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+    }
+    .divDefineCora{
+      max-width: 1000px;
+      font-size: 40px;
+    }
+  }
+</style>
+
 
 
 <html>
@@ -630,105 +801,184 @@
 
     gtag('config', 'UA-75863369-6');
   </script>
-  <link rel="icon"
-        type="image/png"
-        sizes="32x32"
+  
+  <link rel="icon" 
+        type="image/png" 
+        sizes="32x32" 
         href="resources/icon.png"
   >
+
 </head>
 
 <body>
 
-
-
 <br>
-<div style="text-align: center;">
+
+<style>
+  @media screen and (max-width:1000px) {
+    .firstDiv{
+      padding-left: 50px;
+    }
+  }
+</style>
+
+<div style="text-align: center;" class="firstDiv">
 
   <!-- Title -->
   <h1 class="title-font" style="margin: 0;">
-    <span class="cora-purple">Cora</span>:<br> <span class="cora-purple">Cor</span>respondence- <span class="cora-purple">a</span>ware image editing using few step diffusion
+    <span class="cora-purple">Cora</span>:<br> <span class="cora-purple">Cor</span>respondence-<span class="cora-purple">a</span>ware image editing using few step diffusion
   </h1>
-
+  
+  <style>
+    .authors-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px auto 0;
+      text-align: center;
+      width: 70%;
+    }
+  
+    .author-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 14px;
+      width: auto;
+    }
+  
+    .author-name {
+      white-space: nowrap;
+      color: #9829A0 !important;
+    }
+  
+    .affiliation {
+      font-size: 12px;
+      color: #666;
+    }
+  
+    .author-card a {
+      text-decoration: none;
+      color: #222;
+    }
+  
+    @media (max-width: 1000px) {
+      .authors-container {
+        justify-content: center;
+        width: 100%;
+        margin-left: 0px;
+      }
+  
+      .author-card {
+        flex: 1 1 45%;
+        font-size: 16px;
+      }
+  
+      .affiliation {
+        font-size: 14px;
+      }
+      .author-name{
+        font-size: xx-large;
+      }
+    }
+  
+    @media (min-width: 1000px) {
+      .author-card {
+        flex: 0 0 auto;
+      }
+      .author-name{
+        font-size: large;
+      }
+    }
+  </style>
+  
+  <div class="authors-container">
+    <div class="author-card">
+      <a href="https://alimohammadiamirhossein.github.io/">
+        <div class="author-name"><nobr>Amir Alimohammadi*</nobr> <sup>1</sup></div>
+      </a>
+    </div>
+    <div class="author-card">
+      <a href="https://aryanmikaeili.github.io/">
+        <div class="author-name"><nobr>Aryan Mikaeili*</nobr> <sup>1</sup></div>
+      </a>
+    </div>
+    <div class="author-card">
+      <a href="https://sauradip.github.io/">
+        <div class="author-name"><nobr>Sauradip Nag</nobr> <sup>1</sup></div>
+      </a>
+    </div>
+    <div class="author-card">
+      <a href="https://webdocs.cs.ualberta.ca/~hassanpo/">
+        <div class="author-name"><nobr>Negar Hassanpour</nobr> <sup>2</sup></div>
+      </a>
+    </div>
+    <div class="author-card">
+      <a href="https://theialab.ca/">
+        <div class="author-name"><nobr>Andrea Tagliasacchi</nobr> <sup>1, 3, 4</sup></div>
+      </a>
+    </div>
+    <div class="author-card">
+      <a href="https://arash-mham.github.io/">
+        <div class="author-name"><nobr>Ali Mahdavi-Amiri</nobr> <sup>1</sup></div>
+      </a>
+    </div>
+  </div>
   <!-- Author Table (top) -->
-  <table class="project-header" style="margin: 20px auto 0 auto; border-collapse: collapse; text-align: center;">
-    <tr>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://alimohammadiamirhossein.github.io/">
-            <nobr>Amir Alimohammadi*</nobr> <sup>1</sup>
-          </a>
-        </span>
-      </td>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://aryanmikaeili.github.io/">
-            <nobr>Aryan Mikaeili*</nobr> <sup>1</sup>
-          </a>
-        </span>
-      </td>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://sauradip.github.io/">
-            <nobr>Sauradip Nag</nobr> <sup>1</sup>
-          </a>
-        </span>
-      </td>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://webdocs.cs.ualberta.ca/~hassanpo/">
-            <nobr>Negar Hassanpour</nobr> <sup>2</sup>
-          </a>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td style="padding: 6px;"> </td>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://theialab.ca/">
-            <nobr>Andrea Tagliasacchi</nobr> <sup>1, 3, 4</sup>
-          </a>
-        </span>
-      </td>
-      <td style="padding: 6px;">
-        <span class="author-font">
-          <a href="https://arash-mham.github.io/">
-            <nobr>Ali Mahdavi-Amiri</nobr> <sup>1</sup>
-          </a>
-        </span>
-      </td>
-      <td style="padding: 6px;"> </td>
-    </tr>
-  </table>
 
   <!-- Affiliation Table -->
-  <table class="project-header" style="margin: 20px auto 0 auto; width: 800px; border-collapse: collapse; text-align: center;">
-    <tr>
-      <td style="padding: 5px;">
-        <span class="author-font">
-          <sup>1</sup> Simon Fraser University
-        </span>
-      </td>
-      <td style="padding: 5px;">
-        <span class="author-font">
-          <sup>2</sup> Huawei
-        </span>
-      </td>
-      <td style="padding: 5px;">
-        <span class="author-font">
-          <sup>3</sup> University of Toronto
-        </span>
-      </td>
-      <td style="padding: 5px;">
-        <span class="author-font">
-          <sup>4</sup> Google DeepMind
-        </span>
-      </td>
-    </tr>
-  </table>
+  <style>
+    .affiliations-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+  
+    .affiliation-card {
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #444;
+    }
+  
+    .affiliation-sup {
+      font-weight: bold;
+      color: #c761cc;
+      margin-right: 4px;
+    }
+  
+    @media (max-width: 1000px) {
+      .affiliation-card {
+        font-size: 36px;
+        min-width: 150px;
+      }
+    }
+  </style>
+  
+  <div class="affiliations-container">
+    <div class="affiliation-card">
+       <sup>1 </sup><nobr>Simon Fraser University</nobr>
+    </div>
+    <div class="affiliation-card">
+      <sup>2 </sup><nobr>Huawei</nobr> 
+    </div>
+    <div class="affiliation-card">
+       <sup>3 </sup><nobr>University of Toronto</nobr>
+    </div>
+    <div class="affiliation-card">
+       <sup>4 </sup><nobr>Google DeepMind</nobr>
+    </div>
+  </div>
+  
 
   <!-- Equal contribution note -->
-  <div style="font-size: 14px; margin-top: 20px; color: #c761cc;">
+  <div style="font-size: 16px; margin-top: 20px; color: #c761cc;">
     <em>* indicates equal contribution</em>
   </div>
 
@@ -739,33 +989,37 @@
 
 
 
-  <table align="center"
-       style="margin-top:5%; border-collapse:separate; border-spacing:12px 0;"> <!-- 12 px gap -->
-  <tr>
-    <td>
-      <div class="rectangle">
-        <a href="./paper.pdf" class="github-link">Paper&nbsp;(PDF)</a>
-      </div>
-    </td>
-    <td>
-      <div class="rectangle">
-        <a href="./" class="github-link">Paper&nbsp;(Arxiv)</a>
-      </div>
-    </td>
-    <td>
-      <div class="rectangle">
-        <a href="https://github.com/alimohammadiamirhossein/cora"
-           class="github-link">Code</a>
-      </div>
-    </td>
-    <td>
-      <div class="rectangle">
-        <a href="https://huggingface.co/spaces/armikaeili/cora"
-           class="github-link">Demo</a>
-      </div>
-    </td>
-  </tr>
-</table>
+  <table align=center width=600px style="margin-top: 5%">
+    <tr>
+       <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='./' class="github-link">
+              <i class="fas fa-xmark"></i> arXiv
+            </a>
+          </div>
+        </center>
+      </td>
+      <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='https://github.com/alimohammadiamirhossein/cora' class="github-link">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </center>
+      </td>
+      <td align=center width=800px>
+        <center>
+          <div class="rectangle">
+            <a href='https://huggingface.co/spaces/armikaeili/cora' class="github-link">
+              <i class="fas fa-laptop"></i> Demo
+            </a>
+          </div>
+        </center>
+      </td>
+    </tr>
+  </table>
 
 </center>
 
@@ -775,9 +1029,18 @@
     <tr>
       <td width=260px>
         <center>
-          <img class="round" style="width:1000px" src="./resources/teaser.png"/>
+          <iframe width="1000" height="562" style="border-radius: 12px;"
+            src="https://www.youtube.com/watch?v=xLNuUIZAfh8"
+            title="Cora"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <p class="has-text-centered">The audio track for this teaser video was generated with the help of Suno.</p>
+
+
   <h2  align="center">TL;DR</h2>
-<div style="background-color: #f7e9fa; padding: 10px 30px 30px 30px; border-radius: 12px; max-width: 800px; margin: 50px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+<div style="background-color: #f7e9fa; border-radius: 12px; margin: 50px auto; line-height: 1.6; text-align: justify;" class="divDefineCora">
 
   <p>
     <strong style="color: #9829A0">Cora</strong> is a new image editing method that enables flexible and accurate edits-like pose changes, object insertions, and background swaps-using only 4 diffusion steps.
@@ -922,24 +1185,15 @@
   </button>
   <div id="circle-container_transfer"></div>
 </div>
-<div style="background-color: #f7e9fa; padding: 10px 30px 30px 30px; border-radius: 12px; max-width: 800px; margin: 50px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+<div style="background-color: #f7e9fa; padding: 10px 30px 30px 30px; border-radius: 12px; max-width: 800px; width: 100%; margin: 50px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
 While the new ChatGPT 4o image-editing model can also generate high-quality outputs, our approach provides explicit user control over appearance and structural alignment with the input image-resulting in more consistent and customizable edits.
 </div>
 <!-- <hr> -->
   <center><h2>Abstract</h2></center>
- <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
-<table align=center width=800px>
-
-
-  <tr>
-    <td>
+ <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 1000px; width: 100%; margin: 40px auto; text-align: justify;min-height: 200px;">
+    <p style="line-height: 1.5;font-size: large;" class="pInMobile">
      Image editing is an important task in computer graphics, vision, and VFX, with recent diffusion-based methods achieving fast and high-quality results. However, edits requiring significant structural changes, such as non-rigid deformations, object modifications, or content generation, remain challenging. Existing few step editing approaches produce artifacts such as irrelevant texture or struggle to preserve key attributes of the source image (e.g., pose). We introduce Cora, a novel editing framework that addresses these limitations by introducing correspondence-aware noise correction and interpolated attention maps. Our method aligns textures and structures between the source and target images through semantic correspondence, enabling accurate texture transfer while generating new content when necessary. Cora offers control over the balance between content generation and preservation. Extensive experiments demonstrate that, quantitatively and qualitatively, Cora excels in maintaining structure, textures, and identity across diverse edits, including pose changes, object addition, and texture refinements. User studies confirm that Cora delivers superior results, outperforming alternatives.
-    </td>
-
-  </tr>
-
-
-</table>
+    </p>
  </div>
 <br>
 
@@ -958,7 +1212,7 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
     <img src="./resources/latent_correction/cat2/input.png" alt="a cat and a rabbit" onclick="changeExample('cat2')" />
     <img src="./resources/latent_correction/girl/input.png" alt="a girl" onclick="changeExample('girl')" />
     <img src="./resources/latent_correction/shark/input.png" alt="a shark" onclick="changeExample('shark')" />
-    <img src="./resources/latent_correction/stones/input.png" alt="Spiderman" onclick="changeExample('stones')" />
+    <img src="./resources/latent_correction/man/input.png" alt="a man" onclick="changeExample('man')" />
     <img src="./resources/latent_correction/cat4/input.png" alt="a cat" onclick="changeExample('cat4')" />
     <img src="./resources/latent_correction/dog2/input.png" alt="a dog" onclick="changeExample('dog2')" />
   </div>
@@ -968,7 +1222,7 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
     <!-- Left side: Input Image and prompt -->
     <div class="demo-left">
       <!-- <h4 style="color:#9829A0; font-family: 'Shadows Into Light', cursive; margin-bottom:10px;">Input Image</h4> -->
-      <img id="input" src="./resources/latent_correction/eagle/input.png" alt="Input Image" style="border-radius:10px; border:3px solid #4caf50; box-shadow:0 2px 6px rgba(0,0,0,0.15); max-width:100%;" />
+      <img id="input" src="./resources/latent_correction/cat2/input.png" alt="Input Image" style="border-radius:10px; border:3px solid #4caf50; box-shadow:0 2px 6px rgba(0,0,0,0.15); width: 100%; max-width:100%;" />
       <div class="edit-prompt2" id="edit-prompt2">Prompt will appear here</div>
     </div>
 
@@ -976,8 +1230,8 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
     <div class="demo-right" style="position:relative; overflow:hidden;">
       <!-- <h4 style="color:#9829A0; font-family: 'Shadows Into Light', cursive; margin-bottom:10px;">w/o vs. w/ Latent Correction</h4> -->
       <div id="image-compare" style="position:relative; width:100%; max-width:320px; overflow:hidden; border-radius:10px; border:3px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
-        <img id="w-image" src="./resources/latent_correction/eagle/w.png" style="width:100%; display:block;">
-        <img id="wo-image" src="./resources/latent_correction/eagle/wo.png" style="width:100%; display:block; position:absolute; top:0; left:0; clip-path: inset(0 50% 0 0);">
+        <img id="w-image" src="./resources/latent_correction/cat2/w.png" style="width:100%; display:block;">
+        <img id="wo-image" src="./resources/latent_correction/cat2/wo.png" style="width:100%; display:block; position:absolute; top:0; left:0; clip-path: inset(0 50% 0 0);">
         <div id="slider" style="position:absolute; top:0; left:50%; height:100%; width:4px; background:#9829A0; cursor:ew-resize;"></div>
         <div id="slider-handle">
           <div class="handle-icon">
@@ -1004,6 +1258,7 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
     'dog2': 'A dog is lying',
     'shark': 'A shark',
     'eagle': 'An eagle',
+    'man': 'A woman wearing sunglasses',
     'girl': 'A painting of girl with pearl earring and glasses',
     'cat4': 'A racoon play with colorful yarn balls'
   };
@@ -1044,7 +1299,7 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
   }, { passive: false });
 
   // Initialize first example
-  changeExample('eagle');
+  changeExample('cat2');
 </script>
 
 <center>
@@ -1054,66 +1309,99 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
         <center>
           <img class="round" style="width:75%" src="./resources/correspondence.jpg"/>
         </center>
-<div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
-  <p>
-  Image editing with diffusion models typically requires <strong>inversion</strong>: recovering the denoising trajectory from the input image <i>X<sub>0</sub></i> to noise <i>X<sub>T</sub></i>. We build on Edit-Friendly DDPM inversion, where noise is added step-by-step using the forward scheduler to produce <i>X<sub>1</sub></i>, <i>X<sub>2</sub></i>, ..., <i>X<sub>T</sub></i>.
-  </p>
-
-  <p>
-  During generation, it's not guaranteed that <i>X<sub>t</sub></i> will map back to <i>X<sub>t-1</sub></i>, so the method introduces a correction term <i>z</i>. This enables perfect reconstruction with the original prompt and meaningful edits with new prompts.
-  </p>
-
-  <p>
-  However, in <strong>few-step generation</strong>, directly using <i>z</i> leads to <em>artifacts</em> like ghosting and silhouette remnants, especially when the edit involves structural change. We identify the cause: the correction terms are spatially aligned with the original image, not the edited one.
-  </p>
-
-  <p>
-  <strong style="color: #9829A0">Cora</strong> addresses this by aligning <i>z</i> to the target content using <strong>pixel correspondences</strong> computed from diffusion features, enabling clean, structure-consistent edits even in few-step settings.
-  </p>
-</div>
       </td>
     </tr>
   </table>
 </center>
+<div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 1000px; width: 100%; margin: 40px auto; line-height: 1.6; text-align: justify;">
+  <p style="font-size: large;" class="pInMobile">
+  Image editing with diffusion models typically requires <strong style="font-weight: 900;">inversion</strong>: recovering the denoising trajectory from the input image <i>X<sub>0</sub></i> to noise <i>X<sub>T</sub></i>. We build on Edit-Friendly DDPM inversion, where noise is added step-by-step using the forward scheduler to produce <i>X<sub>1</sub></i>, <i>X<sub>2</sub></i>, ..., <i>X<sub>T</sub></i>.
+  </p>
 
-<center><h2>Correspondence-aware attention interpolation</h2></center>
-<!-- <center><img src="./resources/r1.gif" alt="Results" width="800px"></center> -->
-<div style="display: flex; justify-content: center; gap: 30px; max-width: 1000px; margin: 30px auto; flex-wrap: wrap; font-size: 18px; line-height: 1.4;">
+  <p style="font-size: large;" class="pInMobile">
+  During generation, it's not guaranteed that <i>X<sub>t</sub></i> will map back to <i>X<sub>t-1</sub></i>, so the method introduces a correction term <i>z</i>. This enables perfect reconstruction with the original prompt and meaningful edits with new prompts.
+  </p>
+
+  <p style="font-size: large;" class="pInMobile">
+  However, in <strong  style="font-weight: 900;">few-step generation</strong>, directly using <i>z</i> leads to <em>artifacts</em> like ghosting and silhouette remnants, especially when the edit involves structural change. We identify the cause: the correction terms are spatially aligned with the original image, not the edited one.
+  </p>
+
+  <p style="font-size: large;" class="pInMobile">
+  <strong style="color: #9829A0;font-weight: 900;">Cora</strong> addresses this by aligning <i>z</i> to the target content using <strong  style="font-weight: 900;">pixel correspondences</strong> computed from diffusion features, enabling clean, structure-consistent edits even in few-step settings.
+  </p>
+</div>
+
+
+<style>
+  .attention-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto;
+    font-size: 18px;
+    line-height: 1.4;
+    flex-wrap: nowrap;
+  }
+
+  .attention-column {
+    width: 50%;
+    min-width: 280px;
+  }
+
+  @media (max-width: 1000px) {
+    .attention-container {
+      flex-direction: column;
+    }
+
+    .attention-column {
+      width: 100%;
+    }
+  }
+</style>
+
+<center><h2>Correspondence-aware Attention Interpolation</h2></center>
+
+<div class="attention-container">
 
   <!-- Left Column -->
-  <div style="flex: 1; min-width: 280px; max-width: 480px;">
-    <h3 style="margin-bottom: 10px; text-align: center;">Attention interpolation</h3>
+  <div class="attention-column">
+    <h3 style="margin-bottom: 10px; text-align: center;">Attention Interpolation</h3>
     <figure style="text-align: center;">
       <img class="round" style="width:100%" src="./resources/att_method.png"/>
-      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">Illustrating attention interpolation with varying &alpha; values.</figcaption>
+      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">
+        Illustrating attention interpolation with varying α values.
+      </figcaption>
     </figure>
 
-    <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
-      <ul style="padding-left: 20px;">
+    <div style="background-color: #f7e9fa; padding: 10px 30px; border-radius: 12px; text-align: justify;">
+      <ul>
         <li>We reuse self-attention keys and values from the input image (via inversion) during generation to help preserve appearance.</li>
         <li>However, the editing prompt may change appearance or introduce new content not present in the original image.</li>
-        <li>Prior methods either fully swap or concatenate input and target attention features, which often causes conflicts between preservation and new content.</li>
-        <li>Instead, we align attention features using pixel-wise correspondences and apply linear interpolation between them.</li>
-        <li>This approach balances content preservation and flexibility, and provides control over how much of the input's appearance is retained.</li>
-        <li>We found that using <strong>Spherical linear interpolation (SLERP)</strong> works better than linear interpolation.</li>
+        <li>Prior methods either fully swap or concatenate input and target attention features, often causing conflicts between preservation and new content.</li>
+        <li>Instead, we align attention features using pixel-wise correspondences and apply interpolation between them.</li>
+        <li>This approach balances content preservation and flexibility, providing control over how much of the input's appearance is retained.</li>
+        <li>We found that using <strong>spherical linear interpolation (SLERP)</strong> yields better results compared to linear interpolation.</li>
       </ul>
     </div>
   </div>
 
   <!-- Right Column -->
-  <div style="flex: 1; min-width: 280px; max-width: 480px;">
-    <h3 style="margin-bottom: 10px; text-align: center;">Content-adaptive interpolation</h3>
+  <div class="attention-column">
+    <h3 style="margin-bottom: 10px; text-align: center;">Content-adaptive Interpolation</h3>
     <figure style="text-align: center;">
       <img class="round" style="width:88%" src="./resources/adaptive.png"/>
-      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">Content adaptive vs non-adaptive interpolation across different image edits.</figcaption>
+      <figcaption style="font-size: 14px; color: #666; margin-top: 8px;">
+        Content-adaptive vs. non-adaptive interpolation across different image edits.
+      </figcaption>
     </figure>
 
-    <div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
-      <ul style="padding-left: 20px;">
+    <div style="background-color: #f7e9fa; padding: 10px 30px; border-radius: 12px; text-align: justify;">
+      <ul>
         <li>To generate new content, we identify image patches in the target that lack clear correspondence with the input.</li>
-        <li>We assign each patch a score based on how well it matches any patch in the input image.</li>
-        <li>Patches with low correspondence are considered novel, and we set their interpolation coefficient <i>&alpha; = 1</i>, allowing full guidance by the text prompt.</li>
-        <li>For all other patches, &alpha; is set to a user-defined value to balance between input preservation and new content generation.</li>
+        <li>We assign each patch a score based on how well it matches patches from the input image.</li>
+        <li>Patches with low correspondence scores are considered novel; we set their interpolation coefficient <i>α = 1</i>, allowing full guidance by the text prompt.</li>
+        <li>For other patches, α is set to a user-defined value to balance input preservation and new content generation.</li>
       </ul>
     </div>
   </div>
@@ -1121,21 +1409,16 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
 </div>
 
 
-
-
-
-
-
 <!-- <hr> -->
 <center><h2>Structure alignment</h2></center>
 <center>
-  <table align=center width=1000px>
+  <table align=center min-width=280px width=90%;>
     <tr>
       <td width=260px>
         <center>
-          <img class="round" style="width:50%" src="./resources/struct_align.jpg"/>
+          <img class="round" id="struct-align" src="./resources/struct_align.jpg"/>
         </center>
-<div style="background-color: #f7e9fa; padding: 2px 30px 2px 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6; text-align: justify;">
+<div style="background-color: #f7e9fa; border-radius: 12px; margin: 40px auto; line-height: 1.6; text-align: justify;" class="divDefineCora">
  <p>
 To preserve the structure of the input image, we align self-attention queries of the target with those of the input.
 Rather than direct pixel-wise alignment, we use one-to-one matching via the Hungarian algorithm, which effectively maintains structural consistency.
@@ -1148,11 +1431,11 @@ Rather than direct pixel-wise alignment, we use one-to-one matching via the Hung
 
 <center><h2>Visual results</h2></center>
 <center>
-  <table align=center width=1000px>
+  <table align=center min-width=280px width=100%;>
     <tr>
       <td width=260px>
         <center>
-          <img class="round" style="width:75%" src="./resources/results.png"/>
+          <img class="round" id="struct-align2" src="./resources/results.png"/>
         </center>
       </td>
     </tr>
@@ -1161,11 +1444,11 @@ Rather than direct pixel-wise alignment, we use one-to-one matching via the Hung
 
 <center><h2>Comparison</h2></center>
 <center>
-  <table align=center width=1000px>
+  <table align=center min-width=280px width=100%;>
     <tr>
       <td width=260px>
         <center>
-          <img class="round" style="width:75%" src="./resources/comparison.png"/>
+          <img class="round" id="struct-align2" src="./resources/comparison.png"/>
         </center>
       </td>
     </tr>
