@@ -1429,7 +1429,7 @@ While the new ChatGPT 4o image-editing model can also generate high-quality outp
 
 
 <!-- <hr> -->
-<center><h2>Structure alignment</h2></center>
+<center><h2>Structure Alignment</h2></center>
 <center>
   <table align=center min-width=280px width=90%;>
     <tr>
@@ -1448,18 +1448,88 @@ Rather than direct pixel-wise alignment, we use one-to-one matching via the Hung
   </table>
 </center>
 
-<center><h2>Visual results</h2></center>
-<center>
-  <table align=center min-width=280px width=100%;>
-    <tr>
-      <td width=260px>
-        <center>
-          <img class="round" id="struct-align2" src="./resources/results.png"/>
-        </center>
-      </td>
-    </tr>
-  </table>
-</center>
+<style>
+  #image-gallery {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  #image-gallery h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Lightbox Styles */
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  #lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    clip-path: inset(0 1% 3% 1%);  /* top, right, bottom (10% cropped), left */
+    border-radius: 10px;
+  }
+</style>
+
+<section id="image-gallery">
+  <h2>Visual Results</h2>
+  <div id="gallery-grid" class="gallery-grid"></div>
+</section>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Enlarged image" />
+</div>
+
+<script>
+  (function () {
+    const grid = document.getElementById('gallery-grid');
+    for (let i = 1; i <= 24; i++) {
+      const img = document.createElement('img');
+      img.src = `resources/gallery/${i}.jpg`;
+      img.alt = `Gallery image ${i}`;
+      img.addEventListener('click', function () {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+      grid.appendChild(img);
+    }
+    // Close lightbox on overlay click
+    document.getElementById('lightbox').addEventListener('click', function () {
+      this.style.display = 'none';
+    });
+  })();
+</script>
 
 <center><h2>Comparison</h2></center>
 <center>
